@@ -6,7 +6,9 @@ require('dotenv').config()
 const client = new Client();
 
 client.on('qr', (qr) => {
-    qrcode.generate(qr, {small: true});
+    qrcode.generate(qr, { small: true }, (qrcode) => {
+        console.log(qrcode);
+    });
 });
 
 client.on('ready', () => {
